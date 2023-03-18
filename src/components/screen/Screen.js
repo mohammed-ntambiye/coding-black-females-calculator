@@ -1,12 +1,14 @@
-import React from 'react';
-import { Textfit } from "react-textfit";
+import React from "react";
+import { Textfit } from '@tomplum/react-textfit';
 import "./Screen.css";
 
 const Screen = ({ value }) => {
   return (
-    <Textfit className="screen" mode="single" max={70}>
-      {value}
-    </Textfit>
+    <div data-testid="screen">
+      <Textfit className="screen" mode="single" max={70}  >
+        {value}
+      </Textfit>
+    </div>
   );
 };
 

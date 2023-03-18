@@ -143,7 +143,6 @@ const App = () => {
         resetClickHandler();
         break;
       case "+-":
-      case "-":
         invertClickHandler();
         break;
       case "%":
@@ -174,7 +173,7 @@ const App = () => {
           return (
             <Button
               key={i}
-              className={btn === "=" ? "equals" : ""}
+              className={btn === "=" ? "equals" : i}
               value={btn}
               onClick={(event) => handleUserActions(event, btn)}
             />
