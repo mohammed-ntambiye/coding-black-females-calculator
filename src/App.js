@@ -6,7 +6,7 @@ import ButtonBox from "./components/buttonBox/ButtonBox";
 import Button from "./components/button/Button";
 
 const btnValues = [
-  ["C", "+-", "%", "/"],
+  ["C", "+-","/"],
   [7, 8, 9, "X"],
   [4, 5, 6, "-"],
   [1, 2, 3, "+"],
@@ -113,22 +113,6 @@ const App = () => {
     });
   };
 
-  const percentClickHandler = () => {
-    let currentNo = calc.currentNo
-      ? parseFloat(removeSpaces(calc.currentNo))
-      : 0;
-    let calculatedRes = calc.calculatedRes
-      ? parseFloat(removeSpaces(calc.calculatedRes))
-      : 0;
-
-    setCalc({
-      ...calc,
-      currentNo: (currentNo /= Math.pow(100, 1)),
-      calculatedRes: (calculatedRes /= Math.pow(100, 1)),
-      sign: ""
-    });
-  };
-
   const resetClickHandler = () => {
     setCalc({
       sign: "",
@@ -144,9 +128,6 @@ const App = () => {
         break;
       case "+-":
         invertClickHandler();
-        break;
-      case "%":
-        percentClickHandler();
         break;
       case "=":
         equalsClickHandler();
@@ -173,7 +154,7 @@ const App = () => {
           return (
             <Button
               key={i}
-              className={btn === "=" ? "equals" : i}
+              className={btn === "=" ? "equals" :  btn === "C" ? "cancel": i   }
               value={btn}
               onClick={(event) => handleUserActions(event, btn)}
             />

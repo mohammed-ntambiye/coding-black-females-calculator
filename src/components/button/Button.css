@@ -1,23 +1,32 @@
 button {
-    border: none;
-    background-color: rgb(80, 60, 209);
-    font-size: 24px;
-    color: rgb(255, 255, 255);
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 10px;
-    outline: none;
-  }
-  
-  button:hover {
-    background-color: rgb(61, 43, 184);
-  }
-  
-  .equals {
-    grid-column: 3 / 5;
-    background-color: rgb(243, 61, 29);
-  }
-  
-  .equals:hover {
-    background-color: rgb(228, 39, 15);
-  }
+  border: none;
+  background-color: rgb(80, 60, 209);
+  font-size: 24px;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 10px;
+  outline: none;
+}
+
+button:hover {
+  background-color: rgb(61, 43, 184);
+}
+
+.equals {
+  grid-column: 3 / 5;
+  background-color: rgb(18, 133, 68);
+}
+
+.cancel {
+  grid-column: 3 / 1;
+  background-color: rgb(243, 61, 29);
+}
+
+.equals:hover {
+  background-color: rgb(59, 170, 107);
+}
+
+.cancel:hover {
+  background-color: rgb(240, 116, 94);
+}
