@@ -137,12 +137,10 @@ describe("Calculator tests", () => {
       ["1", "X", "4", "-", "9", "-5"],
       ["7", "X", "5", "/", "7", "5"],
 
-      
       ["1", "/", "3", "+", "6", "6.333333333333333"],
       ["5", "/", "6", "X", "9", "7.5"],
       ["1", "/", "4", "-", "9", "-8.75"],
       ["7", "/", "5", "/", "7", "0.19999999999999998"]
-
     ])(
       "should accurately per process '(%s %s %s) %s %s  = %s'",
       (no1, sign1, no2, sign2, no3, result) => {
@@ -168,5 +166,40 @@ describe("Calculator tests", () => {
         expect(displayScreen.textContent).toBe(result);
       }
     );
+  });
+
+  describe("Validation", () => {
+    it("Should prevent user diving by zero", () => {
+      render(<App />);
+      const btnInput1 = screen.getByText("9");
+      const btnSign = screen.getByText("/");
+      const btnInput2 = screen.getAllByText("0");
+      const equalsSign = screen.getByText("=");
+
+
+      fireEvent.click(btnInput1);
+      fireEvent.click(btnSign);
+      fireEvent.click(btnInput2[1]);
+      fireEvent.click(equalsSign);
+
+      const displayScreen = screen.getByTestId("screen");
+      expect(displayScreen.textContent).toBe("Can't divide with 0");
+    });
+
+    it("Should reset calculator", () => {
+      render(<App />);
+      const btnInput1 = screen.getByText("9");
+    
+      fireEvent.click(btnInput1);
+      fireEvent.click(btnInput1);
+
+      const displayScreen = screen.getByTestId("screen");
+      expect(displayScreen.textContent).toBe("99");
+
+      const btnSign = screen.getByText("C");
+      fireEvent.click(btnSign);
+
+      expect(displayScreen.textContent).toBe("0");
+    });
   });
 });
