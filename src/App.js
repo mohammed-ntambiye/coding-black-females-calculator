@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./App.css";
 import Wrapper from "./components/wrapper/Wrapper";
 import Screen from "./components/screen/Screen";
 import ButtonBox from "./components/buttonBox/ButtonBox";
